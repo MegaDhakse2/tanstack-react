@@ -13,7 +13,7 @@ export default function NewEventsSection() {
 
   const {isLoading, error, data} = useQuery({
     queryKey:['eventsData'],
-    queryFn: fetchEvents,
+    queryFn: ({signal})=>fetchEvents({signal, max:2}),
     // staleTime: 10000,
     // gcTime: 2000 
   }); 

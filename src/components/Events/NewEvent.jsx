@@ -15,15 +15,13 @@ export default function NewEvent() {
     mutationFn: uploadAnEvent,
 
     onSuccess: ()=>{
-      queryClient.invalidateQueries({queryKey:['events'], exact: true})
+      queryClient.invalidateQueries({queryKey:['eventsData']})
       navigate('/events')
     },
   })
 
   function handleSubmit(formData) {
     mutate({event: formData});
-    navigate('/events')
-    navigate(0);
   }
 
   return (
